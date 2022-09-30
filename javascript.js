@@ -1,3 +1,11 @@
+
+//continer
+const cont = document.getElementById('#cont');
+//rock button
+const rock = document.getElementById('Rock');
+rock.addEventListener('click', ()=> {playRound("Rock",getComputerChoice())});
+const paper = document.getElementById('Paper');
+paper.addEventListener('click', ()=> {playRound("Paper", getComputerChoice())});
 function getComputerChoice(){
     let random = Math.floor(Math.random()*(3)+1);
     switch (random) {
@@ -12,7 +20,7 @@ function getComputerChoice(){
             break;
     }
 }
-function playerSelection(){
+/*function playerSelection(){
     let userInpu = prompt("chose Rock Paper or Scissors: ");
     userInpu = userInpu[0].toUpperCase() + userInpu.slice(1).toLowerCase();
     while(userInpu!="Rock" && userInpu!="Paper" && userInpu!="Scissors"){
@@ -20,19 +28,26 @@ function playerSelection(){
         userInpu = userInpu[0].toUpperCase() + userInpu.slice(1).toLowerCase();  
     }
     return userInpu;
-}
-function playRound(playerSelection, getComputerChoice){
-    if((playerSelection == "Paper" && getComputerChoice == "Rock") || (playerSelection == "Rock" && getComputerChoice == "Scissors") || (playerSelection == "Scissors" && getComputerChoice == "Paper")){
-        return `you win this  ${playerSelection} bets ${getComputerChoice}`;
+}*/
+function playRound(playerSelection, ComputerChoice){
+
+    if(playerSelection === "Paper" && ComputerChoic === "Rock"){
+        alert(`you win this  ${playerSelection} bets ${ComputerChoice}`);
     }
-    else if(playerSelection == getComputerChoice){
-        return "tie";
+    else if(playerSelection === "Scissors" && ComputerChoice === "Paper"){
+        alert(`you win this  ${playerSelection} bets ${ComputerChoice}`);
+    }
+    else if(playerSelection === "Rock" && ComputerChoice === "Scissors"){
+        alert(`you win this  ${playerSelection} bets ${ComputerChoice}`);
+    }
+    else if(playerSelection === ComputerChoice){
+        alert(`its a tie you bolth chosed  ${playerSelection}`);
     }
     else{
-        return `you lose ${playerSelection} bets ${getComputerChoice}`;
+        alert( `you lose ${ComputerChoice} bets ${playerSelection}`);
     }
 }
-function game(){
+/*function game(){
     let player = 0;
     let computer = 0;
     for(let i=0; i<3; i++){
@@ -55,4 +70,4 @@ function game(){
     else{
         return "it's a tie";
     }
-}
+}*/

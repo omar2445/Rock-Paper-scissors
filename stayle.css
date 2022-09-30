@@ -1,0 +1,11 @@
+.btn{
+    color: rgb(230, 223, 223);
+    background-color: black;
+    border: none;
+    padding: 20px;
+    cursor: pointer;
+}
+#sccor{
+    font-weight: bold;
+    font-size: 20px;
+}
