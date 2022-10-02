@@ -1,73 +1,82 @@
-
-//continer
-const cont = document.getElementById('#cont');
-//rock button
-const rock = document.getElementById('Rock');
-rock.addEventListener('click', ()=> {playRound("Rock",getComputerChoice())});
-const paper = document.getElementById('Paper');
-paper.addEventListener('click', ()=> {playRound("Paper", getComputerChoice())});
-function getComputerChoice(){
-    let random = Math.floor(Math.random()*(3)+1);
-    switch (random) {
-        case 1:
-            return "Rock"
-            break;
-        case 2:
-            return "Paper"
-            break;
-        case 3:
-            return "Scissors"
-            break;
-    }
+//the main div
+const container = document.querySelector('cont');
+//the texte div
+const div1 = document.getElementById('div1');
+//computer counter
+const computer = document.getElementById('computer');
+//player counter
+const player = document.getElementById('player')
+//count
+function resetScore(){
+    computer.innerHTML=0;
+    player.innerHTML = 0;
 }
-/*function playerSelection(){
-    let userInpu = prompt("chose Rock Paper or Scissors: ");
-    userInpu = userInpu[0].toUpperCase() + userInpu.slice(1).toLowerCase();
-    while(userInpu!="Rock" && userInpu!="Paper" && userInpu!="Scissors"){
-        let userInpu = prompt("chose Rock Paper or Scissors: ");
-        userInpu = userInpu[0].toUpperCase() + userInpu.slice(1).toLowerCase();  
+//rock btn
+const rock = document.getElementById("Rock");
+rock.addEventListener('click',()=>{
+    if(getComputerChoise() === "Paper" ){
+        div1.textContent = "you lost";
+        computer.innerHTML = num1();
     }
-    return userInpu;
-}*/
-function playRound(playerSelection, ComputerChoice){
-
-    if(playerSelection === "Paper" && ComputerChoic === "Rock"){
-        alert(`you win this  ${playerSelection} bets ${ComputerChoice}`);
-    }
-    else if(playerSelection === "Scissors" && ComputerChoice === "Paper"){
-        alert(`you win this  ${playerSelection} bets ${ComputerChoice}`);
-    }
-    else if(playerSelection === "Rock" && ComputerChoice === "Scissors"){
-        alert(`you win this  ${playerSelection} bets ${ComputerChoice}`);
-    }
-    else if(playerSelection === ComputerChoice){
-        alert(`its a tie you bolth chosed  ${playerSelection}`);
+    else if(getComputerChoise() === "Rock"){
+        div1.textContent =  "its a tie";
+        i++;
     }
     else{
-        alert( `you lose ${ComputerChoice} bets ${playerSelection}`);
+        div1.textContent ="you win";
+        player.innerHTML = num2();
     }
-}
-/*function game(){
-    let player = 0;
-    let computer = 0;
-    for(let i=0; i<3; i++){
-        alert(playRound(playerSelection(), getComputerChoice()));
-        if(playRound[4] == "w"){
-            player++;
-            return `you win player: ${player} computer: ${computer}`
-        }
-        else if(playRound[4] == "l"){
-            computer++
-            return `you lose player: ${player} computer: ${computer}`
-        }
+});
+//paper btn
+const paper = document.getElementById("Paper");
+paper.addEventListener('click',()=>{
+    if(getComputerChoise() === "Scissor" ){
+        div1.textContent = "you lost";
+        computer.innerHTML = num1();
     }
-    if(player>computer){
-        return `you win player: ${player} computer: ${computer}`;
-    }
-    else if (player<computer){
-        return `you lose player: ${player} computer: ${computer}`;
+    else if(getComputerChoise() === "Paper"){
+        div1.textContent =  "its a tie";
+        i++;
     }
     else{
-        return "it's a tie";
+        div1.textContent =  "you win";
+        player.innerHTML = num2();
     }
-}*/
+});
+const scissor = document.getElementById("Scis");
+scissor.addEventListener('click',()=>{
+    if(getComputerChoise() === "Rock" ){
+        div1.textContent = "you lost";
+        computer.innerHTML = num1();
+    }
+    else if(getComputerChoise() === "Scissor"){
+        div1.textContent =  "its a tie";
+        i++;
+    }
+    else{
+        div1.textContent =  "you win ";
+        player.innerHTML = num2();
+    }
+});
+
+function getComputerChoise(){
+    let chois = Math.floor(Math.random()*3+1);
+    if(chois == 1){
+        return "Rock";
+    }
+    else if(chois == 2){
+        return "Paper";
+    }
+    else{
+        return "Scissor";
+    }
+}
+
+let num1 =  (function(){
+    let num = 0;
+    return function() {return num+=1;};
+})();
+let num2 =  (function(){
+    let num = 0;
+    return function() {return num+=1;};
+})();

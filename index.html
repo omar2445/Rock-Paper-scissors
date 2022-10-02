@@ -8,12 +8,31 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="total">
+    <div class="header">
+        <h1>Rock Paper Scisers game <img src="images/rock-paper-scissors.png" class="rpc"></h1>
+    </div>
+    <div class="count">
+        <div id="player">0</div>
+        <p id="d">:</p>
+        <div id="computer">0</div>
+    </div>
+    <div class="player-computer">
+        <div class="pl">player</div>
+        <div class="co">computer</div>
+        </div>
+    <div id="div1">
+        Make you're move
+    </div>
     <div id="cont">
-        <button class="btn" id="Rock" type="button">Rock</button>
-        <button class="btn" id="Paper"type="button">paper</button>
-        <button  class="btn" id="Scis" type="button">Scisers</button>
-        <button class="btn" id="wing"type="button">wing</button>        
-        <div id="div1"></div>
+        <button class="btn" id="Rock" type="button"><img src="images/rock-svgrepo-com.svg" alt=""></button>
+        <button class="btn" id="Paper"type="button"><img src="images/offering-left-hand-svgrepo-com.svg" alt=""></button>
+        <button  class="btn" id="Scis" type="button"><img src="images/1332795.svg" alt=""></button>
+    </div>
+    <div id="play-again">
+        <button id="play-a" onclick="resetScore()">play-again</button>
+        
+    </div>
     </div>
     <script src="javascript.js"></script>
 </body>
